@@ -3,7 +3,11 @@ from typing import Union
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from dotenv import load_dotenv
+import os
 
+load_dotenv()  # Load environment variables from .env file
+vercel_token = os.getenv('VERCEL_TOKEN')
 app = FastAPI(docs_url="/api/docs", openapi_url="/api/openapi.json")
 
 
